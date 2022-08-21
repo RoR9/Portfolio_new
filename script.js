@@ -1,3 +1,6 @@
+import {scrollAnimation} from "./src/scrollAnimation.js"
+
+
 //Swiper
 const swiperOptions={
     simulateTouch:true,
@@ -21,3 +24,5 @@ const swiperOptions={
         },
 }
 new Swiper(".swiper",swiperOptions)
+//Text Scroll Animation
+scrollAnimation()

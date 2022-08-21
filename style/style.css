@@ -76,6 +76,20 @@
   line-height: 28px;
 }
 
+.header__title, .header__text {
+  -webkit-transform: translate(0px, 120%);
+          transform: translate(0px, 120%);
+  opacity: 0;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+
+.header__title._active, .header__text._active {
+  -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
+  opacity: 1;
+}
+
 .header__title {
   font-weight: 700;
   font-size: 82px;
@@ -91,6 +105,55 @@
   font-weight: 200;
   font-style: italic;
   text-align: center;
+}
+
+.header__contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  z-index: 20;
+  -webkit-transform: translate(-250%, 0px);
+          transform: translate(-250%, 0px);
+  -webkit-transition: all 1.3s ease 0s;
+  transition: all 1.3s ease 0s;
+}
+
+.header__contacts._active {
+  -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
+}
+
+.contact__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  margin: 50px 20px;
+  padding: 10px;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.contact__link:hover {
+  -webkit-transform: translateY(7px);
+          transform: translateY(7px);
+}
+
+.contact__link img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }
 
 /******** Skills Section *********/
@@ -120,6 +183,7 @@
 .projects__heading {
   max-width: 350px;
   text-align: center;
+  font-size: 22px;
   margin: 0 auto 3rem auto;
   position: relative;
 }
@@ -127,11 +191,11 @@
 .projects__heading:after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -10px;
   left: 0;
   width: 100%;
   height: 0.1em;
-  background-color: #fff;
+  background-color: #000;
   -webkit-transform: scale(0);
           transform: scale(0);
   opacity: 0;
