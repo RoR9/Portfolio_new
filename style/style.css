@@ -1,6 +1,8 @@
 @import url(./default.css);
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Work+Sans:wght@400;500;600;700&display=swap");
 .wrapper {
   margin: 0 auto;
+  font-family: "Work Sans";
 }
 
 .container {
@@ -112,5 +114,128 @@
 .image-slider__image img {
   max-width: 100%;
   height: 200px;
+}
+
+/******* Projects Section ********/
+.projects__heading {
+  max-width: 350px;
+  text-align: center;
+  margin: 0 auto 3rem auto;
+  position: relative;
+}
+
+.projects__heading:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: #fff;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
+}
+
+.projects__heading._active:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transition: all 1.6s ease;
+  transition: all 1.6s ease;
+}
+
+.projects__container {
+  padding: 0 40px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.projects__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #333;
+  color: #fff;
+  position: relative;
+}
+
+.projects__card:hover .projects__card--hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+}
+
+.projects__card:hover span {
+  opacity: 1;
+}
+
+.projects__card img {
+  height: 300px;
+  max-width: 100%;
+}
+
+.projects__card--hover {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.projects__card--hover a {
+  margin-right: 30px;
+}
+
+.projects__card--hover a svg:hover {
+  fill: yellow;
+}
+
+.projects__img {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.projects__title {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 15px;
+  font-size: 21px;
+  line-height: 30px;
+}
+
+.projects__title span {
+  opacity: 0;
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  color: yellow;
+  margin-right: 10px;
+}
+
+.projects__title .projects__ncode {
+  -webkit-transform: translateY(1.3px);
+          transform: translateY(1.3px);
+  margin: 0 2px 0 10px;
 }
 /*# sourceMappingURL=style.css.map */
