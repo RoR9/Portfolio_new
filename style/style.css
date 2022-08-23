@@ -302,4 +302,16 @@
           transform: translateY(1.3px);
   margin: 0 2px 0 10px;
 }
+
+.contact {
+  background-color: #333;
+}
+
+.contact input {
+  display: block;
+}
+
+.contact textarea {
+  display: block;
+}
 /*# sourceMappingURL=style.css.map */
