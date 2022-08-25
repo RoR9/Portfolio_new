@@ -1,12 +1,54 @@
 
 @import url(./default.css);
 
+// @font-face {
+// 	font-family: 'Jakarta Sans';
+// 	src: url('../fonts/PlusJakartaSans-Regular.eot');
+// 	src: local('☺'), url('fonts/PlusJakartaSans-Regular.woff') format('woff'), url('fonts/PlusJakartaSans-Regular.ttf') format('truetype'), url('fonts/PlusJakartaSans-Regular.svg') format('svg');
+// 	font-weight: 400;
+// 	font-style: normal;
+// }
+
+
+// @font-face {
+// 	font-family: 'Jakarta Sans';
+// 	src: url('../fonts/PlusJakartaSans-Medium.eot');
+// 	src: local('☺'), url('fonts/PlusJakartaSans-Medium.woff') format('woff'), url('fonts/PlusJakartaSans-Medium.ttf') format('truetype'), url('fonts/PlusJakartaSans-Medium.svg') format('svg');
+// 	font-weight: 500;
+// 	font-style: normal;
+// }
+
+// @font-face {
+// 	font-family: 'Jakarta Sans';
+// 	src: url('../fonts/PlusJakartaSans-ExtraBold.eot');
+// 	src: local('☺'), url('fonts/PlusJakartaSans-ExtraBold.woff') format('woff'), url('fonts/PlusJakartaSans-ExtraBold.ttf') format('truetype'), url('fonts/PlusJakartaSans-ExtraBold.svg') format('svg');
+// 	font-weight: 700;
+// 	font-style: normal;
+// }
+
+@font-face {
+    font-family: "Jakota Test";
+    src: url("../fonts/PlusJakartaSans-Medium.ttf");
+    font-weight: 500;
+}
+
+html,body{
+    scroll-behavior: smooth;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Work+Sans:wght@400;500;600;700&display=swap');
 $workSans:"Work Sans";
+$Jakarta:"Jakota Test";
+$primary-color:#08090B;
+$secondary-color: #F1D047;
 
 .wrapper {
     margin: 0 auto;
-    font-family: $workSans;
+   // font-family: $workSans;
+    font-family: $Jakarta;
+    background-color: $primary-color;
+    color: #fff;
+    
 }
 .container {
     max-width: 1920px;
@@ -19,7 +61,7 @@ $workSans:"Work Sans";
 }
 .header {
     min-height: 100vh;
-    background-image:url(../img/header.jpg) ;
+    background-image:url(../img/cover-min.jpg) ;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -28,6 +70,7 @@ $workSans:"Work Sans";
     flex-direction: column;
     justify-content: center;
     align-items: center;
+   
 
     &:before{
         content: "";
@@ -37,34 +80,84 @@ $workSans:"Work Sans";
         height: 100%;
         top: 0;
         left: 0;
-        background-color: rgba($color: #000000, $alpha: 0.7);
+        background-color: rgba($color: #000000, $alpha: 0.65);
     }
 }
 .nav {
     z-index: 3;
     color: #fff;
-    margin-bottom: 160px;
+   // margin-bottom: 160px;
     position: absolute;
-    top: 20px;
-    left: auto;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 78px;  
+    &::before{
+        content: "";
+        bottom: 10px;
+        width: 85%;
+        padding: 0 120px;
+        border: 1px solid #FFFFFF;
+
+        
+        position: absolute;
+    }
+}
+
+.link{
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 0.12em;
+    color: #fff;
+    text-transform: uppercase;
+
+    &:hover{
+        color: $secondary-color;
+    }
+
+}
+
+.logo{
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+letter-spacing: 0.12em;
+color: #fff;
 }
 .nav__links {
     display: flex;
     justify-content: center;
     
     li{
-        margin-right: 30px;
+        margin-right:48px;
 
-        a{
-            color: #fff;
-            font-size: 24px;
-            line-height: 28px;
-
+        &:last-child{
+            margin-right: 0px;
         }
+
     }
 
     
 }
+.nav__contact{
+   display: flex;
+   align-items: center;
+   svg{
+     transform: translate(0,2px);
+     transition: all 0.3s ease-in;
+   }
+   &:hover{
+    svg{
+        transform: translate(5px,2px);
+        fill: #F1D047;
+    }
+   }
+   
+   
+}
+
 .header__title,.header__text{
     transform: translate(0px,120%);
     opacity: 0;
@@ -133,16 +226,32 @@ transform: translate(0px,0px);
 
 /******** Skills Section *********/
 .skills {
-    padding: 30px 0;
+    padding: 85px 20px;
+    background-color: $secondary-color;
    
 }
 
 .skills__title{
+   
+    font-size: 72px;
+    line-height: 91px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
     font-size: 62px;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 60px;
-    line-height: 76px;
+    margin-bottom: 130px;
+    color: $primary-color;
+    transition: all 0.9s ease-out 0s;
+    transform: translate(0px,100%);
+    opacity: 0;
+
+    &._active{
+        transform: translate(0,0);
+        opacity: 1;
+    }
+    
+   
 }
 
 
@@ -167,24 +276,34 @@ transform: translate(0px,0px);
 /******* Projects Section ********/
 
 .projects {
+    padding: 50px 20px;
    
 }
 .projects__heading {
-    max-width: 350px;
+    max-width: 1000px;
+    font-weight: 700;
+    font-size: 62px;
+    line-height: 91px;
+    /* identical to box height */
+
     text-align: center;
-    font-size: 22px;
-    margin: 0 auto 3rem auto;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+
+color: #FFFFFF;
+    text-align: center;
+    margin: 0 auto 5rem auto;
     
     position: relative;
 
     &:after{
     content: '';
 	position: absolute;
-	bottom: -10px;
+	bottom: 0px;
 	left: 0;
 	width: 100%;
 	height: 0.1em;
-	background-color: #000;
+	background-color: #fff;
     transform: scale(0);
 	opacity: 0;
     }
@@ -194,24 +313,46 @@ transform: translate(0px,0px);
 	transform-origin: center;
 	transition:all 1.6s ease;
     }
+
+    
 }
 .projects__container{
-    padding: 0 40px;
+    padding: 0px 40px 80px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 40px;
 }
 .projects__card {
     display: flex;
     flex-direction: column;
-    background-color: #333;
+    //background-color: #333;
     color: #fff;
     position: relative;
+   
+    transition: box-shadow 0.8s ease 0s;
+    
+    box-shadow: 0px 0px 15px #fff;
+
+    &._anim_items{
+        transform: scale(0);
+        transition: transform 0.8s ease;
+
+        &._active{
+            transform: scale(1);
+        }
+    }
+
+    
+
+
+    
      
     &:hover{
+        box-shadow: 0px 0px 18px $secondary-color;
         .projects__card--hover{
             background-color: rgba($color: #000000, $alpha: 0.7);
             opacity: 1;
+            
         }
         span{
             opacity: 1;
@@ -221,6 +362,12 @@ transform: translate(0px,0px);
     img{
         height: 300px;
         max-width: 100%;
+        
+        
+    }
+    .small-img{
+        width: 100%;
+        object-fit: cover;
     }
 }
 .projects__card--hover{
@@ -237,7 +384,7 @@ transform: translate(0px,0px);
     a{
         margin-right:30px ;
      svg:hover{
-        fill: yellow;
+        fill: $secondary-color;
      }
     }
   
@@ -257,12 +404,14 @@ transform: translate(0px,0px);
     
     
     
+    
+    
     span{
         opacity: 0;
         display: inline-block;
         height: 100%;
         text-align: center;
-        color: yellow;
+        color: $secondary-color;
         margin-right:10px ;
        
         
@@ -276,8 +425,17 @@ transform: translate(0px,0px);
 }
 
 
+
+/*********** Contact Section ********/
 .contact {
-    background-color: #333;
+    
+    padding: 50px 70px;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+    background-color: $secondary-color;
     input{
         display: block;
     }
@@ -286,6 +444,129 @@ transform: translate(0px,0px);
     }
 }
 .contact__title {
+flex:0 1 50%;
+font-weight: 800;
+font-size: 72px;
+line-height: 91px;
+
+text-transform: uppercase;
+color: #08090B;
+order: 2;
 }
 .conctact__form {
+   
+   order: 1;
+   
+    label{
+        display: block;
+        margin: 10px 0 5px 20px;
+        color: $primary-color;
+        font-size: 20px;
+    }
+   input[type="text"],input[type="email"],textarea{
+    color: #fff;
+    height: 51px;
+    background-color: $primary-color;
+    border-radius: 50px;
+    width: 400px;
+    margin-right: auto;
+    font-size: 15px;
+    text-indent: 30px;
+   }
+    
+  textarea{
+    height: 300px;
+    padding: 20px;
+    margin-bottom: 20px;
+    
+
+  }
 }
+
+.btn {
+    background: #08090B;
+    border-radius: 56px;
+    width: 298px;
+    height: 65px;  
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 0.12em;
+    color: #FFFFFF;  
+    font-family: $Jakarta;
+    display: block;
+    margin: 0 auto;
+
+    svg{
+        transform: translate(0,5px);
+        transition: all 0.5s ease-in-out;
+        margin-left: 16px;
+    }
+
+
+    &:hover{
+        svg{
+            transform: translate(5px,5px);
+            
+        }
+    }
+
+    &.projects__btn{
+        background: #fff;
+        color: #000;
+        svg{
+            fill: #000;
+        }
+        
+    }
+ 
+
+} 
+
+
+
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-image: none;
+    background-color:$primary-color;
+    color: inherit;
+}
+
+/********** Footer *********/
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    margin-top: 30px;
+    height: 100px;
+    &::before{
+        content: "";
+        top: 10px;
+        width: 85%;
+        padding: 0 120px;
+        border: 1px solid #FFFFFF;
+        position: absolute;
+    }
+}
+
+.copyright {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.12em;
+    
+}
+
+._hide{
+    display: none;
+}
+
+._show{
+  display: block;
+}
+
+._name{
+    color: red;
+}
+/******** Grid Container ****/
