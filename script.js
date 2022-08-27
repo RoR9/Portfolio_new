@@ -1,7 +1,15 @@
 import {scrollAnimation} from "./src/scrollAnimation.js"
 //Preloader
 const preloader=document.querySelector("#preloader")
-window.addEventListener("load",()=>preloader.style.display="none")
+window.addEventListener("load",()=>{
+    new Promise(function (resolve,reject){
+        setTimeout(()=>resolve(preloader.style.display="none"),1500)
+
+    })
+    //Text Scroll Animation
+    .then(()=>scrollAnimation())
+     }
+    )
 
 //Show All Button
 
@@ -34,8 +42,8 @@ const swiperOptions={
         },
 }
 new Swiper(".swiper",swiperOptions)
-//Text Scroll Animation
-scrollAnimation()
+
+
 
 //Form
 const form=document.querySelector("form")
