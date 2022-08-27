@@ -1,4 +1,7 @@
 import {scrollAnimation} from "./src/scrollAnimation.js"
+//Preloader
+const preloader=document.querySelector("#preloader")
+window.addEventListener("load",()=>preloader.style.display="none")
 
 //Show All Button
 
@@ -37,6 +40,7 @@ scrollAnimation()
 //Form
 const form=document.querySelector("form")
 form.addEventListener("submit",handleSendEmail)
+
 
 async function handleSendEmail(event) {
     const name=document.querySelector("#name")
